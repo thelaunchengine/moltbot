@@ -35,6 +35,7 @@ ENV NODE_ENV=production
 # Security hardening: Run as non-root user
 # The node:22-bookworm image includes a 'node' user (uid 1000)
 # This reduces the attack surface by preventing container escape via root privileges
+EXPOSE 3000
 USER node
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/index.js", "gateway", "--bind", "0.0.0.0", "--port", "3000"]
