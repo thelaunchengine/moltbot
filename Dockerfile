@@ -37,4 +37,4 @@ ENV NODE_ENV=production
 # This reduces the attack surface by preventing container escape via root privileges
 EXPOSE 3000
 USER node
-CMD ["node", "dist/index.js", "gateway", "--bind", "lan", "--port", "3000"]
+CMD ["node", "dist/index.js", "gateway", "--bind", "lan", "--port", "3000", "--allow-unconfigured"]
