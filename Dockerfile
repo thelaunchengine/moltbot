@@ -36,5 +36,6 @@ ENV NODE_ENV=production
 # The node:22-bookworm image includes a 'node' user (uid 1000)
 # This reduces the attack surface by preventing container escape via root privileges
 EXPOSE 3000
+RUN chown -R node:node /app
 USER node
 CMD ["node", "dist/index.js", "gateway", "--bind", "lan", "--port", "3000", "--allow-unconfigured"]
