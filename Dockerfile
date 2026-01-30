@@ -23,6 +23,9 @@ COPY scripts ./scripts
 
 RUN pnpm install --frozen-lockfile
 RUN pnpm add undici -w
+RUN apt-get update && \
+    apt-get install -y chromium chromium-driver && \
+    rm -rf /var/lib/apt/lists/*
 COPY . .
 RUN CLAWDBOT_A2UI_SKIP_MISSING=1 pnpm build
 # Force pnpm for UI build (Bun may fail on ARM/Synology architectures)
