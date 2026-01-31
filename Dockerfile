@@ -41,4 +41,4 @@ ENV NODE_ENV=production
 EXPOSE 3000
 RUN chown -R node:node /app
 USER node
-CMD ["node", "dist/index.js", "gateway", "--bind", "lan", "--port", "3000"]
+CMD ["node", "dist/index.js", "gateway", "--mode", "local", "--bind", "lan", "--port", "3000"]
